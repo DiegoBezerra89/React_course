@@ -9,7 +9,7 @@ const CategoryPage = () => {
     <>
       <div className="products-container">
         {categoryProducts?.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard product={product} key={product.id} />
         ))}
       </div>
     </>

@@ -26,8 +26,11 @@ export const CategoriesProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    setCategoryProducts(getCategoryProducts(categoriesMap, selectedCategory));
-  }, [selectedCategory]);
+    if (categoriesMap) {
+      const products = getCategoryProducts(categoriesMap, selectedCategory);
+      setCategoryProducts(products);
+    }
+  }, [selectedCategory, categoriesMap]);
 
   const handleSelectedCategory = (category) => {
     setSelectedCategory(category);
